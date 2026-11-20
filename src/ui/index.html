@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@600;700;800&display=swap">
+<style>/*STYLES*/</style>
+</head>
+<body>
+<div class="app" id="app" data-phase="boot">
+
+  <!-- Signed out / signing in -->
+  <section class="gate" id="gate">
+    <div class="showcase" aria-hidden="true">
+      <img class="card c1" src="%%IMG:headphones%%" alt="">
+      <img class="card c2" src="%%IMG:perfume%%" alt="">
+      <img class="card c3" src="%%IMG:watch-dramatic%%" alt="">
+      <img class="gate-mark" src="%%MARK%%" alt="">
+    </div>
+    <h1 class="gate-title" id="gate-title">Create with PopNow</h1>
+    <div class="gate-wait" id="gate-wait">
+      <span class="spinner" aria-hidden="true"></span>
+      <span>Finish signing in in your browser</span>
+    </div>
+    <p class="gate-error" id="gate-error" role="alert"></p>
+    <button class="jelly" id="sign-in" type="button">Sign in with PopNow</button>
+    <div class="gate-links" id="gate-links">
+      <button class="link" id="reopen" type="button">Open the page again</button>
+      <span class="dot" aria-hidden="true">·</span>
+      <button class="link" id="cancel-sign-in" type="button">Cancel</button>
+    </div>
+    <a class="gate-foot link" href="https://popnow.ai/privacy" data-open>Privacy</a>
+  </section>
+
+  <!-- Signed in -->
+  <section class="work" id="work">
+    <header class="top">
+      <div class="brand"><img src="%%MARK%%" alt="" width="24" height="24"><span>PopNow</span></div>
+      <button class="balance" id="balance" type="button" data-href="https://popnow.ai/pricing" title="Get credits"><span id="balance-n">—</span></button>
+      <div class="menu-wrap">
+        <button class="icon-btn" id="menu-btn" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Account">%%ICON:more%%</button>
+        <div class="menu" id="menu" role="menu" hidden>
+          <button role="menuitem" type="button" data-href="https://popnow.ai/assets">My library %%ICON:external%%</button>
+          <button role="menuitem" type="button" data-href="https://popnow.ai/pricing">Get credits %%ICON:external%%</button>
+          <button role="menuitem" type="button" id="sign-out">Sign out</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button role="tab" type="button" id="tab-generate" data-tab="generate" aria-selected="true">Generate</button>
+      <button role="tab" type="button" id="tab-selection" data-tab="selection" aria-selected="false">Selection<span class="tab-dot" id="tab-dot" hidden></span></button>
+    </nav>
+
+    <main class="body">
+      <!-- Generate -->
+      <div class="view" id="view-generate">
+        <textarea class="field prompt" id="gen-prompt" rows="5" placeholder="Describe the image" aria-label="Prompt"></textarea>
+        <div class="seg" id="gen-aspects" role="radiogroup" aria-label="Aspect ratio"></div>
+        <label class="select">
+          <span class="select-label">Model</span>
+          <select id="gen-model" aria-label="Model"><option value="">Auto</option></select>
+          <span class="select-chev">%%ICON:chevron%%</span>
+        </label>
+      </div>
+
+      <!-- Selection -->
+      <div class="view" id="view-selection" hidden>
+        <div class="empty" id="sel-empty">
+          <span class="empty-ic">%%ICON:select%%</span>
+          <p>Select a layer on the canvas</p>
+        </div>
+        <div id="sel-body" hidden>
+          <div class="layer">
+            <div class="thumb" id="sel-thumb"><span class="spinner" aria-hidden="true"></span></div>
+            <div class="layer-meta">
+              <strong id="sel-name"></strong>
+              <span id="sel-size"></span>
+            </div>
+          </div>
+          <div class="tools" id="tools" role="radiogroup" aria-label="Tool"></div>
+          <div class="opts" id="opts">
+            <div class="chips" id="sel-presets"></div>
+            <textarea class="field prompt small" id="sel-prompt" rows="3" aria-label="Prompt"></textarea>
+            <div class="seg" id="sel-choices" role="radiogroup"></div>
+            <label class="select" id="sel-model-wrap">
+              <span class="select-label">Model</span>
+              <select id="sel-model" aria-label="Model"><option value="">Auto</option></select>
+              <span class="select-chev">%%ICON:chevron%%</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="foot">
+      <div class="notice" id="notice" role="status" hidden>
+        <span id="notice-text"></span>
+        <button class="link" id="notice-action" type="button" hidden></button>
+      </div>
+      <label class="consent" id="consent" hidden>
+        <input type="checkbox" id="consent-box">
+        <span class="check" aria-hidden="true"></span>
+        <span>The people in this image are me or agreed to this, are 18 or older, and it won't be used to mislead anyone.</span>
+      </label>
+      <div class="progress" id="progress" hidden>
+        <div class="progress-row">
+          <span id="progress-label">Making it</span>
+          <span class="elapsed" id="elapsed">0:00</span>
+        </div>
+        <div class="bar"><span></span></div>
+        <button class="link" id="stop" type="button">Stop waiting</button>
+      </div>
+      <div class="go-row" id="go-row">
+        <button class="jelly" id="go" type="button" disabled><span id="go-label">Generate</span></button>
+        <button class="link credits-link" id="get-credits" type="button" data-href="https://popnow.ai/pricing" hidden>Get credits</button>
+      </div>
+    </footer>
+  </section>
+</div>
+<script>/*SCRIPT*/</script>
+</body>
+</html>

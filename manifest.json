@@ -1,0 +1,20 @@
+{
+  "name": "PopNow",
+  "id": "popnow-figma",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "editorType": ["figma", "figjam"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": [
+      "https://api.popnow.ai",
+      "https://connect.popnow.ai",
+      "https://media.popnow.ai",
+      "https://*.r2.cloudflarestorage.com",
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
+    ],
+    "reasoning": "api.popnow.ai is PopNow: sign-in, prices, creations and the upload window for the selected layer. connect.popnow.ai hands the sign-in code back to the plugin (it never sees a token). *.r2.cloudflarestorage.com and media.popnow.ai are PopNow's storage: the selected layer is uploaded to a signed address there, and finished images and videos are downloaded from there to place them on the canvas. fonts.googleapis.com and fonts.gstatic.com load the Gabarito font for the panel."
+  }
+}
